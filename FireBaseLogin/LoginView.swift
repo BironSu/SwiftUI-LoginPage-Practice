@@ -12,32 +12,51 @@ struct LoginView: View {
     
     @State private var username: String = ""
     @State private var password: String = ""
-    
+    @State private var show: Bool = false
     var body: some View {
-        VStack{
+        ZStack{
+            LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing).edgesIgnoringSafeArea(.all)
             
-            HStack{
-                Image(systemName: "person.fill").resizable().frame(width: 20, height: 20)
+            VStack{
                 
-                TextField("Username", text: $username)
-                    .padding(.leading, 12)
-                    .font(.system(size: 20))
-            }.padding(.leading, 20)
-                .padding(.bottom, 20)
-                .background(Color("Color"))
+                HStack{
+                    Image(systemName: "person.fill").resizable().frame(width: 20, height: 20)
+                    
+                    TextField("Username", text: $username)
+                        .padding(.leading, 12)
+                        .font(.system(size: 20))
+                }.padding(20)
+                    .background(Color(.white))
+                    .cornerRadius(20)
+                
+                HStack{
+                    Image(systemName: "lock.fill").resizable().frame(width: 20, height: 20)
+                    
+                    SecureField("Password", text: $password)
+                        .padding(.leading, 12)
+                        .font(.system(size: 20))
+                }.padding(20)
+                    .background(Color(.white))
+                    .cornerRadius(20)
+                
+                Button(action: {
+                    
+                    self.show.toggle()
+                    
+                }) {
+                    Text("Login").foregroundColor(.black).padding()
+                    
+                }.frame(width: 150)
+                .background(Color(.white))
                 .cornerRadius(20)
-            
-            HStack{
-                Image(systemName: "lock.fill").resizable().frame(width: 20, height: 20)
-                
-                SecureField("Password", text: $password)
-                    .padding(.leading, 12)
-                    .font(.system(size: 20))
-            }.padding(.leading, 20)
-            .background(Color("Color"))
-            .cornerRadius(20)
-            
+                .offset(y: 25)
+                .shadow(radius: 25)
+            }
+            .padding(.horizontal, 18)
+        }.alert(isPresented: $show) {
+            Alert(title: Text(self.username), message: Text(self.password), dismissButton: .none)
         }
+        
     }
 }
 
