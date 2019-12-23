@@ -14,6 +14,7 @@
 		934C158C23B16AA600C58367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934C158B23B16AA600C58367 /* Assets.xcassets */; };
 		934C158F23B16AA600C58367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934C158E23B16AA600C58367 /* Preview Assets.xcassets */; };
 		934C159223B16AA600C58367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934C159023B16AA600C58367 /* LaunchScreen.storyboard */; };
+		934C159C23B1718C00C58367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C159B23B1718C00C58367 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		934C158E23B16AA600C58367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		934C159123B16AA600C58367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		934C159323B16AA600C58367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		934C159B23B1718C00C58367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				934C158223B16AA400C58367 /* AppDelegate.swift */,
 				934C158423B16AA400C58367 /* SceneDelegate.swift */,
 				934C158923B16AA400C58367 /* ContentView.swift */,
+				934C159B23B1718C00C58367 /* LoginView.swift */,
 				934C158B23B16AA600C58367 /* Assets.xcassets */,
 				934C159023B16AA600C58367 /* LaunchScreen.storyboard */,
 				934C159323B16AA600C58367 /* Info.plist */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934C159C23B1718C00C58367 /* LoginView.swift in Sources */,
 				934C158823B16AA400C58367 /* FireBaseLogin.xcdatamodeld in Sources */,
 				934C158323B16AA400C58367 /* AppDelegate.swift in Sources */,
 				934C158A23B16AA400C58367 /* ContentView.swift in Sources */,
