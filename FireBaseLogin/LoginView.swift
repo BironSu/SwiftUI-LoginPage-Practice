@@ -8,15 +8,13 @@
 
 import SwiftUI
 
-enum AlertType {
-    case invalidUser, invalidPassword, emptyFields
-}
 struct LoginView: View {
     
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var show: Bool = false
-    @State private var success: Bool = false
+    @Binding var username: String
+    @Binding var password: String
+    @Binding var login: Bool
+    @Binding var activeAlert: AlertType
+    @Binding var signUp : Bool
     
     var body: some View {
         ZStack{
@@ -46,37 +44,69 @@ struct LoginView: View {
                     .background(Color(.white))
                     .cornerRadius(20)
                 
-                Button(action: {
-                    self.show.toggle()
-                    if !self.username.isEmpty && !self.password.isEmpty {
-                        self.success = true
-                    } else {
-                        self.success = false
-                    }
-                }) {
-                    Text("Login").foregroundColor(.black).padding()
+                HStack {
+                    Button(action: {
+                        self.login.toggle()
+                        if self.username.isEmpty && self.password.isEmpty {
+                            self.activeAlert = .emptyFields
+                        } else if self.username.isEmpty && !self.password.isEmpty {
+                            self.activeAlert = .invalidUser
+                        } else if !self.username.isEmpty && self.password.isEmpty {
+                            self.activeAlert = .invalidPassword
+                        } else {
+                            self.activeAlert = .successLogin
+                        }
+                    }) {
+                        Text("Login").foregroundColor(.black).padding()
+                        
+                    }.frame(width: 100)
+                    .background(Color(.white))
+                    .cornerRadius(20)
+                    .offset(y: 20)
                     
-                }.frame(width: 150)
-                .background(Color(.white))
-                .cornerRadius(20)
-                .offset(y: 25)
-                .shadow(radius: 25)
+                    Button(action: {
+                        self.signUp.toggle()
+                    }) {
+                        
+                        Text("Create Account").foregroundColor(.black).padding()
+                        
+                    }.frame(width: 170)
+                    .background(Color(.white))
+                    .cornerRadius(20)
+                    .offset(y: 20)
+                }
+                Button(action: {
+                    
+                }) {
+                    Text("Forgot password?").foregroundColor(.white)
+                }.offset(y: 40)
             }
-
             .padding(.horizontal, 18)
-        }.alert(isPresented: $show) {
-            switch self.success {
-            case true:
-                return Alert(title: Text(self.username), message: Text(self.password), dismissButton: .none)
-            case false:
-                return Alert(title: Text("Failed"), message: Text("Failed"), dismissButton: .none)
+        }.alert(isPresented: $login) {
+            switch self.activeAlert {
+            case .emptyFields:
+                return Alert(title: Text("Empty User"), message: Text("Empty Password"), dismissButton: .none)
+            case .invalidUser:
+                return Alert(title: Text("Failed Login"), message: Text("Invalid Username"), dismissButton: .none)
+            case .invalidPassword:
+                return Alert(title: Text("Failed Login"), message: Text("Invalid Password"), dismissButton: .none)
+            case .successLogin:
+                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none)
             }
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
+struct CreatePage: View {
+    @Binding var create: Bool
+    @State var user: String = ""
+    @State var password: String = ""
+    @State var confirmPassword: String = ""
+    
+    var body : some View {
+        VStack {
+            Image("Login Logo").resizable().frame(width: 80, height: 80).padding(.bottom, 15)
+            
+        }
     }
 }
