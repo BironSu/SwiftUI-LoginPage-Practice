@@ -28,7 +28,6 @@ struct ContentView: View {
         .sheet(isPresented: $signUp) {
             CreatePage(create: self.$signUp)
         }
-        
     }
 }
 
