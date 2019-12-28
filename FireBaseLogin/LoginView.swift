@@ -84,6 +84,7 @@ struct LoginView: View {
                         .background(Color(.white))
                         .cornerRadius(20)
                         .offset(y: 20)
+                        // Present CreateView Modally
                         .sheet(isPresented: $signUp) {
                             CreateView(create: self.$signUp)
                         }
@@ -95,6 +96,7 @@ struct LoginView: View {
                 }) {
                     Text("Forgot password?").foregroundColor(.white)
                 }.offset(y: 40)
+                    // Present ForgotPassword View Modally
                     .sheet(isPresented: self.$forgotPass){
                         ForgotPassword(forgotPass: self.$forgotPass)
                 }

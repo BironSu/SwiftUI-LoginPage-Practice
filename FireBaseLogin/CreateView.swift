@@ -30,7 +30,7 @@ struct CreateView: View {
                     .frame(width: 80, height: 80)
                     .padding(.bottom, 15)
                 
-// Username
+// Username TextField
                 HStack {
                     Image(systemName: "person.fill")
                         .resizable()
@@ -44,7 +44,7 @@ struct CreateView: View {
                     .background(Color(.white))
                     .cornerRadius(20)
                 
-// Password
+// Password TextField
                 HStack {
                     Image(systemName: "lock")
                         .resizable()
@@ -58,7 +58,7 @@ struct CreateView: View {
                     .background(Color(.white))
                     .cornerRadius(20)
                 
-// Confirm Password
+// Confirm Password TextField
                 HStack {
                     Image(systemName: "lock.fill")
                         .resizable()
@@ -71,7 +71,7 @@ struct CreateView: View {
                 }.padding(12)
                     .background(Color(.white))
                     .cornerRadius(20)
-// Email
+// Email TextField
                 HStack {
                     Image(systemName: "envelope.circle")
                         .resizable()
