@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ForgotPassword: View {
+    
     @Binding var forgotPass: Bool
     @State var email: String = ""
+    
     var body: some View {
         
         ZStack {
@@ -31,8 +33,8 @@ struct ForgotPassword: View {
                         .padding(.leading, 12)
                         .font(.system(size: 20))
                 }.padding(20)
-                .background(Color(.white))
-                .cornerRadius(20)
+                    .background(Color(.white))
+                    .cornerRadius(20)
                 
                 HStack {
                     Button(action: {
@@ -61,7 +63,8 @@ struct ForgotPassword: View {
                         .shadow(radius: 20)
                         .offset(y: 20)
                 }
-            }.padding(.horizontal, 18)
+            }
+            .padding(.horizontal, 18)
         }
     }
 }
