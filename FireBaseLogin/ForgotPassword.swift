@@ -16,14 +16,17 @@ struct ForgotPassword: View {
     var body: some View {
         
         ZStack {
+// Background
             LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+// Logo
                 Image("Login Logo")
                     .resizable()
                     .frame(width: 80, height: 80)
                     .padding(.bottom, 15)
+// Email TextField
                 HStack{
                     Image(systemName: "envelope.circle")
                         .resizable()
@@ -35,7 +38,7 @@ struct ForgotPassword: View {
                 }.padding(20)
                     .background(Color(.white))
                     .cornerRadius(20)
-                
+// Okay/Confirm Button
                 HStack {
                     Button(action: {
                         self.forgotPass.toggle()
@@ -49,7 +52,7 @@ struct ForgotPassword: View {
                         .cornerRadius(20)
                         .shadow(radius: 20)
                         .offset(y: 20)
-                    
+// Cancel Button
                     Button(action: {
                         self.forgotPass.toggle()
                     }) {
