@@ -15,11 +15,12 @@ enum AlertType {
 
 struct LoginView: View {
 
-    @Binding var username: String
-    @Binding var password: String
-    @Binding var login: Bool
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var login: Bool = false
     @State var activeAlert: AlertType = .emptyFields
-    @Binding var signUp : Bool
+    @State var signUp : Bool = false
+    @State var forgotPass: Bool = false
     
     var body: some View {
         ZStack{
@@ -83,13 +84,20 @@ struct LoginView: View {
                         .background(Color(.white))
                         .cornerRadius(20)
                         .offset(y: 20)
+                        .sheet(isPresented: $signUp) {
+                            CreateView(create: self.$signUp)
+                        }
                 }
-// Forgot password button
+                
+// Forgot password button - OUTSIDE OF HSTACK
                 Button(action: {
-                    
+                    self.forgotPass.toggle()
                 }) {
                     Text("Forgot password?").foregroundColor(.white)
                 }.offset(y: 40)
+                    .sheet(isPresented: self.$forgotPass){
+                        ForgotPassword(forgotPass: self.$forgotPass)
+                }
             }
             .padding(.horizontal, 18)
 // Alert Switchs for Login Alert Types
