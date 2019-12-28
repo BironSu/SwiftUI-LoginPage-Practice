@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing).edgesIgnoringSafeArea(.all)
+                LoginView()
+                
+            }
+        }
     }
 }
 
