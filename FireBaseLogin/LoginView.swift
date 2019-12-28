@@ -8,22 +8,30 @@
 
 import SwiftUI
 
+// Types of Alerts for Logging in
+enum AlertType {
+    case invalidUser, invalidPassword, emptyFields, successLogin
+}
+
 struct LoginView: View {
-    
+
     @Binding var username: String
     @Binding var password: String
     @Binding var login: Bool
-    @Binding var activeAlert: AlertType
+    @State var activeAlert: AlertType = .emptyFields
     @Binding var signUp : Bool
     
     var body: some View {
         ZStack{
-            LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing).edgesIgnoringSafeArea(.all)
+// Background Color
+            LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing)
+                .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
+// Login Logo
                 Image("Login Logo").resizable().frame(width: 80, height: 80).padding(.bottom, 15)
-                
+
+// Username
                 HStack{
                     Image(systemName: "person.fill").resizable().frame(width: 20, height: 20)
                     
@@ -33,7 +41,7 @@ struct LoginView: View {
                 }.padding(20)
                     .background(Color(.white))
                     .cornerRadius(20)
-                
+// Password
                 HStack{
                     Image(systemName: "lock.fill").resizable().frame(width: 20, height: 20)
                     
@@ -43,9 +51,10 @@ struct LoginView: View {
                 }.padding(20)
                     .background(Color(.white))
                     .cornerRadius(20)
-                
+// Login Button
                 HStack {
                     Button(action: {
+// Setting type of alert based on condition
                         self.login.toggle()
                         if self.username.isEmpty && self.password.isEmpty {
                             self.activeAlert = .emptyFields
@@ -60,10 +69,10 @@ struct LoginView: View {
                         Text("Login").foregroundColor(.black).padding()
                         
                     }.frame(width: 100)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-                    .offset(y: 20)
-                    
+                        .background(Color(.white))
+                        .cornerRadius(20)
+                        .offset(y: 20)
+// SignUp Button
                     Button(action: {
                         self.signUp.toggle()
                     }) {
@@ -71,10 +80,11 @@ struct LoginView: View {
                         Text("Create Account").foregroundColor(.black).padding()
                         
                     }.frame(width: 170)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-                    .offset(y: 20)
+                        .background(Color(.white))
+                        .cornerRadius(20)
+                        .offset(y: 20)
                 }
+// Forgot password button
                 Button(action: {
                     
                 }) {
@@ -82,6 +92,7 @@ struct LoginView: View {
                 }.offset(y: 40)
             }
             .padding(.horizontal, 18)
+// Alert Switchs for Login Alert Types
         }.alert(isPresented: $login) {
             switch self.activeAlert {
             case .emptyFields:
@@ -93,116 +104,6 @@ struct LoginView: View {
             case .successLogin:
                 return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none)
             }
-        }
-    }
-}
-// ==CREATE PAGE=======================================================================
-struct CreatePage: View {
-    
-    @Binding var create: Bool
-    @State var user: String = ""
-    @State var password: String = ""
-    @State var confirmPassword: String = ""
-    @State var email: String = ""
-    
-    var body : some View {
-        
-        ZStack{
-//Background Color
-            LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-// Logo
-                Image("Login Logo")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .padding(.bottom, 15)
-                
-// Username
-                HStack {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    
-                    TextField("Username", text: $user)
-                        .padding(.leading, 12)
-                        .font(.system(size: 20))
-                    
-                }.padding(12)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-                
-// Password
-                HStack {
-                    Image(systemName: "lock")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    
-                    SecureField("Password", text: $password)
-                        .padding(.leading, 12)
-                        .font(.system(size: 20))
-                    
-                }.padding(12)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-                
-// Confirm Password
-                HStack {
-                    Image(systemName: "lock.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    
-                    SecureField("Confirm Password", text: $confirmPassword)
-                        .padding(.leading, 12)
-                        .font(.system(size: 20))
-                    
-                }.padding(12)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-// Email
-                HStack {
-                    Image(systemName: "envelope.circle")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    
-                    TextField("Email Address", text: $email)
-                        .padding(.leading, 12)
-                        .font(.system(size: 20))
-                    
-                }.padding(12)
-                    .background(Color(.white))
-                    .cornerRadius(20)
-// SignUp Button
-                VStack {
-                    Button(action: {
-                        self.create.toggle()
-                    }) {
-                        Text("Create Account")
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(width: 250)
-                        
-                    }.background(Color(.white))
-                        .cornerRadius(20)
-                        .shadow(radius: 20)
-                        .offset(y: 20)
-                    
-                    Button(action: {
-                        self.create.toggle()
-                    }) {
-                        Text("Cancel")
-                            .foregroundColor(.black)
-                            .padding()
-                            .frame(width: 100)
-                        
-                    }.background(Color(.white))
-                        .cornerRadius(20)
-                        .shadow(radius: 20)
-                        .offset(y: 30)
-                    
-                }
-            }.padding(.horizontal, 18)
         }
     }
 }
