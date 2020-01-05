@@ -65,6 +65,7 @@ struct LoginView: View {
                             self.activeAlert = .invalidPassword
                         } else {
                             self.activeAlert = .successLogin
+                            self.login.toggle()
                         }
                     }) {
                         Text("Login").foregroundColor(.black).padding()
@@ -73,6 +74,9 @@ struct LoginView: View {
                         .background(Color(.white))
                         .cornerRadius(20)
                         .offset(y: 20)
+                        .sheet(isPresented: self.$login){
+                            HomePageView(user: self.$username)
+                        }
 // SignUp Button
                     Button(action: {
                         self.signUp.toggle()

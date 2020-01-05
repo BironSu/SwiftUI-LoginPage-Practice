@@ -17,6 +17,7 @@
 		934C159C23B1718C00C58367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C159B23B1718C00C58367 /* LoginView.swift */; };
 		934C159E23B6D27000C58367 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C159D23B6D27000C58367 /* CreateView.swift */; };
 		934C15A023B6D4A000C58367 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C159F23B6D4A000C58367 /* ForgotPassword.swift */; };
+		934C15A323C2762C00C58367 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C15A223C2762C00C58367 /* HomePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		934C159B23B1718C00C58367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		934C159D23B6D27000C58367 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		934C159F23B6D4A000C58367 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		934C15A223C2762C00C58367 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				934C158223B16AA400C58367 /* AppDelegate.swift */,
 				934C158423B16AA400C58367 /* SceneDelegate.swift */,
 				934C158923B16AA400C58367 /* ContentView.swift */,
+				934C15A223C2762C00C58367 /* HomePageView.swift */,
 				934C15A123B6E29300C58367 /* UserLoginAndCreate */,
 				934C158B23B16AA600C58367 /* Assets.xcassets */,
 				934C159023B16AA600C58367 /* LaunchScreen.storyboard */,
@@ -172,6 +175,7 @@
 				934C158A23B16AA400C58367 /* ContentView.swift in Sources */,
 				934C15A023B6D4A000C58367 /* ForgotPassword.swift in Sources */,
 				934C159E23B6D27000C58367 /* CreateView.swift in Sources */,
+				934C15A323C2762C00C58367 /* HomePageView.swift in Sources */,
 				934C158523B16AA400C58367 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
