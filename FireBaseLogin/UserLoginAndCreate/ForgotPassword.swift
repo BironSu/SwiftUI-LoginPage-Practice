@@ -26,6 +26,9 @@ struct ForgotPassword: View {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .padding(.bottom, 15)
+//
+                Text("Please enter the email address of your account below.")
+                    .font(.system(size: 15)).foregroundColor(.white)
 // Email TextField
                 HStack{
                     Image(systemName: "envelope.circle")
