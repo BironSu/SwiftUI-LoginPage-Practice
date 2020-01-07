@@ -11,6 +11,7 @@ import SwiftUI
 struct HomePageView: View {
     
     @State var user: String = ""
+    @Binding var loggedIn: Bool
     
     var body: some View {
         ZStack{
@@ -27,13 +28,7 @@ struct HomePageView: View {
                 
                 // Cancel Button
                 Button(action: {
-                    NavigationView{
-                        ZStack{
-                            NavigationLink(destination: LoginView(), label: {
-                                    Text("Detail")
-                            })
-                        }
-                    }
+                    self.loggedIn.toggle()
                 }) {
                     Text("Cancel")
                         .foregroundColor(.black)

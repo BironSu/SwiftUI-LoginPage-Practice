@@ -21,7 +21,7 @@ struct ContentView: View {
                 if self.userLoginStatus.loggedIn == false {
                     LoginView(loggedIn: self.$userLoginStatus.loggedIn)
                 } else {
-                    HomePageView()
+                    HomePageView(loggedIn: self.$userLoginStatus.loggedIn)
                 }
             }
         }
