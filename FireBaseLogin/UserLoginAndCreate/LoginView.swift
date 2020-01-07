@@ -112,8 +112,10 @@ struct LoginView: View {
             case .invalidPassword:
                 return Alert(title: Text("Failed Login"), message: Text("Invalid Password"), dismissButton: .none)
             case .successLogin:
-                self.loggedIn.toggle()
-                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none )
+                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .default(Text("OK"), action: {
+                    self.loggedIn.toggle()
+
+                }) )
             }
         }
     }
