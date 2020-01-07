@@ -27,7 +27,13 @@ struct HomePageView: View {
                 
                 // Cancel Button
                 Button(action: {
-                    
+//                    NavigationView{
+//                        ZStack{
+//                            NavigationLink(destination: LoginView(), label: {
+//                                    Text("Detail")
+//                            })
+//                        }
+//                    }
                 }) {
                     Text("Cancel")
                         .foregroundColor(.black)

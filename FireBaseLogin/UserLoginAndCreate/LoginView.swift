@@ -21,7 +21,7 @@ struct LoginView: View {
     @State var activeAlert: AlertType = .emptyFields
     @State var signUp : Bool = false
     @State var forgotPass: Bool = false
-    
+    @Binding var loggedIn: Bool
     var body: some View {
         ZStack{
 // Background Color
@@ -112,7 +112,8 @@ struct LoginView: View {
             case .invalidPassword:
                 return Alert(title: Text("Failed Login"), message: Text("Invalid Password"), dismissButton: .none)
             case .successLogin:
-                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none)
+                self.loggedIn.toggle()
+                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none )
             }
         }
     }

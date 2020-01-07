@@ -7,15 +7,22 @@
 //
 
 import SwiftUI
-
+class UserStatus: ObservableObject {
+    @Published var loggedIn: Bool = false
+}
 struct ContentView: View {
+    
+    @ObservedObject var userLoginStatus = UserStatus()
     
     var body: some View {
         NavigationView {
             ZStack {
 // Show Login View - will add conditions once firebase is set up
-                LoginView()
-                
+                if self.userLoginStatus.loggedIn == false {
+                    LoginView(loggedIn: self.$userLoginStatus.loggedIn)
+                } else {
+                    HomePageView()
+                }
             }
         }
     }
