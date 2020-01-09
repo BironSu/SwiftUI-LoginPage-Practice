@@ -21,7 +21,7 @@ struct LoginView: View {
     @State var activeAlert: AlertType = .emptyFields
     @State var signUp : Bool = false
     @State var forgotPass: Bool = false
-    
+    @Binding var loggedIn: Bool
     var body: some View {
         ZStack{
 // Background Color
@@ -84,6 +84,7 @@ struct LoginView: View {
                         .background(Color(.white))
                         .cornerRadius(20)
                         .offset(y: 20)
+                        // Present CreateView Modally
                         .sheet(isPresented: $signUp) {
                             CreateView(create: self.$signUp)
                         }
@@ -95,6 +96,7 @@ struct LoginView: View {
                 }) {
                     Text("Forgot password?").foregroundColor(.white)
                 }.offset(y: 40)
+                    // Present ForgotPassword View Modally
                     .sheet(isPresented: self.$forgotPass){
                         ForgotPassword(forgotPass: self.$forgotPass)
                 }
@@ -110,7 +112,10 @@ struct LoginView: View {
             case .invalidPassword:
                 return Alert(title: Text("Failed Login"), message: Text("Invalid Password"), dismissButton: .none)
             case .successLogin:
-                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .none)
+                return Alert(title: Text("Success"), message: Text("Successfully Logged in"), dismissButton: .default(Text("OK"), action: {
+                    self.loggedIn.toggle()
+
+                }) )
             }
         }
     }

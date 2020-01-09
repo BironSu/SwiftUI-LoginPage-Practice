@@ -9,19 +9,27 @@
 import SwiftUI
 
 struct ForgotPassword: View {
+    
     @Binding var forgotPass: Bool
     @State var email: String = ""
+    
     var body: some View {
         
         ZStack {
+// Background
             LinearGradient(gradient: .init(colors: [Color(.blue),Color(.blue)]), startPoint: .leading, endPoint: .trailing)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+// Logo
                 Image("Login Logo")
                     .resizable()
                     .frame(width: 80, height: 80)
                     .padding(.bottom, 15)
+//
+                Text("Please enter the email address of your account below.")
+                    .font(.system(size: 15)).foregroundColor(.white)
+// Email TextField
                 HStack{
                     Image(systemName: "envelope.circle")
                         .resizable()
@@ -31,9 +39,9 @@ struct ForgotPassword: View {
                         .padding(.leading, 12)
                         .font(.system(size: 20))
                 }.padding(20)
-                .background(Color(.white))
-                .cornerRadius(20)
-                
+                    .background(Color(.white))
+                    .cornerRadius(20)
+// Okay/Confirm Button
                 HStack {
                     Button(action: {
                         self.forgotPass.toggle()
@@ -47,7 +55,7 @@ struct ForgotPassword: View {
                         .cornerRadius(20)
                         .shadow(radius: 20)
                         .offset(y: 20)
-                    
+// Cancel Button
                     Button(action: {
                         self.forgotPass.toggle()
                     }) {
@@ -61,7 +69,8 @@ struct ForgotPassword: View {
                         .shadow(radius: 20)
                         .offset(y: 20)
                 }
-            }.padding(.horizontal, 18)
+            }
+            .padding(.horizontal, 18)
         }
     }
 }
